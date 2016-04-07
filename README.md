@@ -66,11 +66,24 @@ export default Controller.extend({
 
 ## Service API
 
-- `setParam` - Function; For example `paramsRelay.setParam('name', value)`.
-- `getParam` - Function; For example `paramsRelay.getParam('name')`. Returns the value, can be anything.
-- `subscribe` - Function; For example `paramsRelay.subscribe('name', (key, value) => { //do something });`.
-- `autoSubscribe` - Function; For example `paramsRelay.autoSubscribe(this)`. Where `this` is the controller that has a `queryParams` array.
-  All query params must have a unique name, since setting a 'theme' in one controller will set the same QP in another.
+#### `setParam`
+
+Function signature `paramsRelay.setParam('name', value)`.
+
+#### `getParam`
+
+Function signature `paramsRelay.getParam('name')`. Returns the value, can be anything.
+
+#### `subscribe`
+
+Function signature `paramsRelay.subscribe('name', (key, value) => { //do something });`.
+
+#### `autoSubscribe`
+
+Function signature `paramsRelay.autoSubscribe(this)`.  
+Where `this` is the controller that has a `queryParams` array.
+All query params must have a unique name, since setting a 'theme' in one controller will set the same QP in another.
+
 
 ## Custom Service
 
