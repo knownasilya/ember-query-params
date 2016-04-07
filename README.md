@@ -46,3 +46,5 @@ export default Ember.Controller.extend({
 ## Contributing
 
 See [CONTRIBUTING.md].
+
+[CONTRIBUTING.md]: CONTRIBUTING.md
