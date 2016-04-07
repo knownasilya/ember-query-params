@@ -8,7 +8,7 @@ Ember service for your query params
 ![Ember Version][ember-version]
 
 This addon is in response to https://github.com/emberjs/ember.js/issues/11592.  
-The idea came from @rwjblue.
+The idea came from [Robert Jackson].
 
 :warning: This addon uses the `Map` browser API, if your app supports browsers that don't
 include it, then please use a [polyfill].
@@ -96,5 +96,6 @@ See [CONTRIBUTING.md].
 [ember-observer-badge]: http://emberobserver.com/badges/ember-query-params.svg
 [ember-observer-url]: http://emberobserver.com/addons/ember-query-params
 [ember-version]: https://embadge.io/v1/badge.svg?start=1.13.0
+[Robert Jackson]: https://github.com/rwjblue
 [polyfill]: https://github.com/babel/ember-cli-babel#polyfill
 [CONTRIBUTING.md]: CONTRIBUTING.md
