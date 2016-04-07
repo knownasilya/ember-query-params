@@ -46,8 +46,10 @@ export default Ember.Mixin.create({
 
       return all;
     }, []);
+    let update = (name, val) => {
+      Ember.run(context, 'set', name, val);
+    };
 
-    let update = (name, val) => { Ember.run(context, 'set', name, val); }
     keys.forEach(key => this.subscribe(key, update));
   },
 
