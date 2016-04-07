@@ -7,7 +7,8 @@ Ember service for your query params
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
 ![Ember Version][ember-version]
 
-This addon is in response to https://github.com/emberjs/ember.js/issues/11592.
+This addon is in response to https://github.com/emberjs/ember.js/issues/11592.  
+The idea came from @rwjblue.
 
 :warning: This addon uses the `Map` browser API, if your app supports browsers that don't
 include it, then please use a [polyfill].
