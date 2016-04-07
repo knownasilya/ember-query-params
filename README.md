@@ -2,6 +2,11 @@
 
 Ember service for your query params
 
+[![NPM][npm-badge-img]][npm-badge-link]
+[![Build Status][travis-badge]][travis-badge-url]
+[![Ember Observer Score][ember-observer-badge]][ember-observer-url]
+![Ember Version][ember-version]
+
 ## Usage
 
 ```js
@@ -70,4 +75,11 @@ export default Ember.Service.extend(QPMixin, {
 
 See [CONTRIBUTING.md].
 
+[npm-badge-img]: https://badge.fury.io/js/ember-query-params.svg
+[npm-badge-link]: http://badge.fury.io/js/ember-query-params
+[travis-badge]: https://travis-ci.org/knownasilya/ember-query-params.svg
+[travis-badge-url]: https://travis-ci.org/knownasilya/ember-query-params
+[ember-observer-badge]: http://emberobserver.com/badges/ember-query-params.svg
+[ember-observer-url]: http://emberobserver.com/addons/ember-query-params
+[ember-version]: https://embadge.io/v1/badge.svg?start=1.13.0
 [CONTRIBUTING.md]: CONTRIBUTING.md
