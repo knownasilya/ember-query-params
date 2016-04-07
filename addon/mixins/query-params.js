@@ -1,9 +1,14 @@
 import Ember from 'ember';
 
-const map = new Map();
-
 export default Ember.Mixin.create({
+  init() {
+    this._super(...arguments);
+    this._map = new Map();
+  },
+
   setParam(name, value) {
+    let map = this._map;
+
     if (map.has(name)) {
       map.get(name).value = value;
       this.callCbs(name);
@@ -16,11 +21,15 @@ export default Ember.Mixin.create({
   },
 
   getParam(name) {
-  	var item = map.get(name);
+    let map = this._map;
+  	let item = map.get(name);
+
     return item ? item.value : undefined;
   },
 
   subscribe(name, cb) {
+    let map = this._map;
+
     if (map.has(name)) {
       let item = map.get(name);
       item.cbs.push(cb);
@@ -50,7 +59,7 @@ export default Ember.Mixin.create({
       if (context.isDestroyed || context.isDestroying) {
         return;
       }
-      
+
       Ember.run(context, 'set', name, val);
     };
 
@@ -58,6 +67,8 @@ export default Ember.Mixin.create({
   },
 
   callCbs(name) {
+    let map = this._map;
+
   	if (map.has(name)) {
       let item = map.get(name);
       item.cbs.forEach(cb => cb(name, item.value));
