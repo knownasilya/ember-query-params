@@ -39,7 +39,7 @@ export default Ember.Controller.extend({
     toggleSidebar(val) {
       var paramsRelay = this.get('paramsRelay');
 
-      paramsRelay.setParam('isSidebar', val);
+      paramsRelay.setParam('isSidebarOpen', val);
     }
   }
 });
@@ -51,6 +51,7 @@ export default Ember.Controller.extend({
 - `getParam` - Function; For example `paramsRelay.getParam('name')`. Returns the value, can be anything.
 - `subscribe` - Function; For example `paramsRelay.subscribe('name', (key, value) => { //do something });`.
 - `autoSubscribe` - Function; For example `paramsRelay.autoSubscribe(this)`. Where `this` is the controller that has a `queryParams` array.
+  All query params must have a unique name, since setting a 'theme' in one controller will set the same QP in another.
 
 ## Custom Service
 
