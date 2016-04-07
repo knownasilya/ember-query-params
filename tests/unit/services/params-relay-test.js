@@ -5,8 +5,14 @@ moduleFor('service:params-relay', 'Unit | Service | params relay', {
   // needs: ['service:foo']
 });
 
-// Replace this with your real tests.
-test('it exists', function(assert) {
+test('setting a param', function(assert) {
   let service = this.subject();
-  assert.ok(service);
+
+  assert.notOk(service.getParam('name'));
+  service.setParam('name', 'bob');
+
+  assert.equal(service.getParam('name'), 'bob');
+  service.setParam('name', 'john');
+
+  assert.equal(service.getParam('name'), 'john');
 });

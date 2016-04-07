@@ -9,7 +9,8 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each"
+    "test": "ember try:each",
+    "test-default": "ember try:one default --- ember test"
   },
   "repository": "https://github.com/knownasilya/ember-query-params",
   "engines": {
