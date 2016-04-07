@@ -1,26 +1,48 @@
-# Ember-query-params
+# ember-query-params
 
-This README outlines the details of collaborating on this Ember addon.
+Ember service for your query params
 
-## Installation
+## Usage
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```js
+export default Ember.Controller.extend({
+  paramsRelay: Ember.inject.service(),
 
-## Running
+  queryParams: [
+    'theme',
+    { isSidebar: 'sidebar' }
+  ],
+  theme: 'default',
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+  init() {
+    this._super(...arguments);
+    var paramsRelay = this.get('paramsRelay');
 
-## Running Tests
+    paramsRelay.autoSubscribe(this);
+    // or
+    paramsRelay.subscribe('theme', (name, val) => {
+      this.set(name, val);
+    });
+  }
+});
+```
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+In another place:
 
-## Building
+```js
+export default Ember.Controller.extend({
+  paramsRelay: Ember.inject.service(),
 
-* `ember build`
+  actions: {
+    toggleSidebar(val) {
+      var paramsRelay = this.get('paramsRelay');
 
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+      paramsRelay.setParam('theme', val);
+    }
+  }
+});
+```
+
+## Contributing
+
+See [CONTRIBUTING.md].
