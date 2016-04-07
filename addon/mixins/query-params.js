@@ -47,6 +47,10 @@ export default Ember.Mixin.create({
       return all;
     }, []);
     let update = (name, val) => {
+      if (context.isDestroyed || context.isDestroying) {
+        return;
+      }
+      
       Ember.run(context, 'set', name, val);
     };
 
