@@ -7,6 +7,8 @@ Ember service for your query params
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
 ![Ember Version][ember-version]
 
+This addon is in response to https://github.com/emberjs/ember.js/issues/11592.
+
 ## Usage
 
 ```js
