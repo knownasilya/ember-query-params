@@ -12,8 +12,12 @@ This addon is in response to https://github.com/emberjs/ember.js/issues/11592.
 ## Usage
 
 ```js
-export default Ember.Controller.extend({
-  paramsRelay: Ember.inject.service(),
+import Ember from 'ember';
+
+const { inject, Controller } = Ember;
+
+export default Controller.extend({
+  paramsRelay: inject.service(),
 
   queryParams: [
     'theme',
@@ -39,8 +43,12 @@ export default Ember.Controller.extend({
 In another place:
 
 ```js
-export default Ember.Controller.extend({
-  paramsRelay: Ember.inject.service(),
+import Ember from 'ember';
+
+const { inject, Controller } = Ember;
+
+export default Controller.extend({
+  paramsRelay: inject.service(),
 
   actions: {
     toggleSidebar(val) {
