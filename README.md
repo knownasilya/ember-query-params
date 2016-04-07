@@ -10,8 +10,9 @@ export default Ember.Controller.extend({
 
   queryParams: [
     'theme',
-    { isSidebar: 'sidebar' }
+    { isSidebarOpen: 'sidebar' }
   ],
+  isSidebarOpen: false,
   theme: 'default',
 
   init() {
@@ -21,6 +22,7 @@ export default Ember.Controller.extend({
     paramsRelay.autoSubscribe(this);
     // or
     paramsRelay.subscribe('theme', (name, val) => {
+      // name => 'theme'
       this.set(name, val);
     });
   }
@@ -37,7 +39,7 @@ export default Ember.Controller.extend({
     toggleSidebar(val) {
       var paramsRelay = this.get('paramsRelay');
 
-      paramsRelay.setParam('theme', val);
+      paramsRelay.setParam('isSidebar', val);
     }
   }
 });
