@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  paramsService: Ember.inject.service('params'),
+  paramsRelay: Ember.inject.service('params-relay'),
   appName: 'Ember Twiddle',
   queryParams: ['theme', { isSidebar: 'sidebar' }],
   theme: 'bye',
@@ -10,20 +10,20 @@ export default Ember.Controller.extend({
 
   init() {
     this._super(...arguments);
-    var paramsService = this.get('paramsService');
+    var paramsRelay = this.get('paramsRelay');
 
-    //paramsService.subscribe('theme', (key, theme) => this.set('theme', theme));
-    paramsService.autoSubscribe(this);
-    paramsService.subscribe('theme', (key, theme) => this.set('theme2', theme+2));
+    paramsRelay.autoSubscribe(this);
+    paramsRelay.subscribe('theme', (key, theme) => this.set('theme2', theme+2));
+    //paramsRelay.subscribe('theme', (key, theme) => this.set('theme', theme));
   },
 
   actions: {
   	updateTheme() {
-    	var paramsService = this.get('paramsService');
+    	var paramsRelay = this.get('paramsRelay');
       var counter = this.incrementProperty('counter');
 
-      paramsService.setParam('theme', `hi${counter}`);
-      paramsService.setParam('isSidebar', counter % 2 === 1);
+      paramsRelay.setParam('theme', `hi${counter}`);
+      paramsRelay.setParam('isSidebar', counter % 2 === 1);
     }
   }
 });
