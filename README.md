@@ -14,6 +14,25 @@ The idea came from [Robert Jackson].
 
 ```js
 import Ember from 'ember';
+import AutosubscribeMixin from 'ember-query-params/mixins/autosubscribe';
+
+export default Ember.Controller.extend(AutosubscribeMixin, {
+  queryParams: [
+    'theme',
+    { isSidebarOpen: 'sidebar' }
+  ],
+  isSidebarOpen: false,
+  theme: 'default'
+});
+```
+
+This will use `paramsRelay.autoSubscribe(controller)` on `init` and later
+tear down on `willDestroy`. You also get a couple proxy methods, `subscribeParam` and
+`unsubscribeParam` which work the same as the equivalent methods on the service.  
+Or you can use the service directly for maximum control.
+
+```js
+import Ember from 'ember';
 
 const { inject, Controller } = Ember;
 
