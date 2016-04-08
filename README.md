@@ -10,9 +10,6 @@ Ember service for your query params
 This addon is in response to https://github.com/emberjs/ember.js/issues/11592.  
 The idea came from [Robert Jackson].
 
-:warning: This addon uses the `Map` browser API, if your app supports browsers that don't
-include it, then please use a [polyfill].
-
 ## Usage
 
 ```js
