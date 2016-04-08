@@ -75,6 +75,12 @@ Function signature `paramsRelay.getParam('name')`. Returns the value, can be any
 
 Function signature `paramsRelay.subscribe('name', (key, value) => { //do something });`.
 
+#### `unsubscribe`
+
+Function signature `paramsRelay.unsubscribe('name', sameFunctionUsedInSubscribe)`.
+The function you passed to `subscribe` must be the same one passed to `unsubscribe` to remove it from
+the list of callbacks to notify on change.
+
 #### `autoSubscribe`
 
 Function signature `paramsRelay.autoSubscribe(this)`.  

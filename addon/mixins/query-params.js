@@ -42,6 +42,19 @@ export default Ember.Mixin.create({
     }
   },
 
+  unsubscribe(name, cb) {
+    let map = this._map;
+    let item = map[name];
+
+    if (item) {
+      let index = item.cbs.indexOf(cb);
+
+      if (index !== -1) {
+        item.cbs.splice(index, 1);
+      }
+    }
+  },
+
   autoSubscribe(context) {
   	if (!context || !context.queryParams) {
     	return;
