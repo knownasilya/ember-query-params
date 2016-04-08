@@ -10,5 +10,17 @@ export default Ember.Mixin.create({
 
     paramsRelay.autoSubscribe(this);
     this._super(...arguments);
+  },
+
+  subscribeParam(name, cb) {
+    var paramsRelay = this.get('paramsRelay');
+
+    paramsRelay.subscribe(name, cb);
+  },
+
+  unsubscribeParam(name, cb) {
+    var paramsRelay = this.get('paramsRelay');
+
+    paramsRelay.unsubscribe(name, cb);
   }
 });
