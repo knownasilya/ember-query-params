@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { get } = Ember;
+
 export default Ember.Mixin.create({
   init() {
     this._super(...arguments);
@@ -77,7 +79,10 @@ export default Ember.Mixin.create({
       Ember.run(context, 'set', name, val);
     };
 
-    keys.forEach(key => this.subscribe(key, update));
+    keys.forEach(key => {
+      this.setParam(key, get(context, key));
+      this.subscribe(key, update);
+    });
 
     let originalWillDestroy = context.willDestroy;
     // Override willDestroy to cleanup handlers

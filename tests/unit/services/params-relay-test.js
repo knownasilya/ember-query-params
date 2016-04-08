@@ -36,10 +36,16 @@ test('autoSubscribe changes values', function(assert) {
     queryParams: [
       'hello',
       { myName: 'name' }
-    ]
+    ],
+    hello: 'hi',
+    myName: 'betty'
   });
 
   service.autoSubscribe(target);
+
+  // set default values
+  assert.equal(service.getParam('hello'), 'hi');
+  assert.equal(service.getParam('myName'), 'betty');
 
   service.setParam('hello', 'bob');
   service.setParam('myName', 'john');

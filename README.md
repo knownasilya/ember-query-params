@@ -27,7 +27,8 @@ export default Ember.Controller.extend(AutosubscribeMixin, {
 ```
 
 This will use `paramsRelay.autoSubscribe(controller)` on `init` and later
-tear down on `willDestroy`. You also get a couple proxy methods, `subscribeParam` and
+tear down on `willDestroy`. All default queryParam values are automatically set on
+the `paramsRelay` service. You also get a couple proxy methods, `subscribeParam` and
 `unsubscribeParam` which work the same as the equivalent methods on the service.  
 Or you can use the service directly for maximum control.
 
@@ -104,6 +105,7 @@ the list of callbacks to notify on change.
 
 Function signature `paramsRelay.autoSubscribe(this)`.  
 Where `this` is the controller that has a `queryParams` array.
+All default query param values from the controller are set on the `paramsRelay` service.
 All query params must have a unique name, since setting a 'theme' in one controller will set the same QP in another.
 
 
