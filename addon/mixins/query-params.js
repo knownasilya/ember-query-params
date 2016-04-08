@@ -78,6 +78,15 @@ export default Ember.Mixin.create({
     };
 
     keys.forEach(key => this.subscribe(key, update));
+
+    let originalWillDestroy = context.willDestroy;
+    // Override willDestroy to cleanup handlers
+    if (originalWillDestroy) {
+      context.willDestroy = () => {
+        keys.forEach(key => this.unsubscribe(key, update));
+        originalWillDestroy(...arguments);
+      };
+    }
   },
 
   callCbs(name) {
