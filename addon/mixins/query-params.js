@@ -30,6 +30,13 @@ export default Ember.Mixin.create({
     return item ? item.value : undefined;
   },
 
+  setParams(hash) {
+    Object.keys(hash).forEach(key => {
+      let value = hash[key];
+      this.setParam(key, value);
+    });
+  },
+
   subscribe(name, cb) {
     let map = this._map;
     let item = map[name];
