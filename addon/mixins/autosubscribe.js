@@ -8,7 +8,9 @@ export default Ember.Mixin.create({
   init() {
     this._super(...arguments);
     var originalBeforeModel = this.beforeModel;
+    var originalQPsDidChange = this.actions.queryParamsDidChange;
 
+    // Override `beforeModel` hook to setup default values from the controller
     this.beforeModel = function eqpBeforeModel() {
       var paramsRelay = this.get('paramsRelay');
       var routeName = this.routeName || this.router.currentRouteName;
@@ -17,8 +19,6 @@ export default Ember.Mixin.create({
       paramsRelay.autoSubscribe(controller);
       originalBeforeModel.bind(this, ...arguments);
     };
-
-    var originalQPsDidChange = this.actions.queryParamsDidChange;
 
     // Override `queryParamsDidChange` action for updating the paramsRelay
     // service on QP URL value changes
