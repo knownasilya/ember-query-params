@@ -87,7 +87,9 @@ export default Ember.Mixin.create({
     };
 
     keys.forEach(key => {
-      this.setParam(key, get(context, key));
+      if (!this._map[key]) {
+        this.setParam(key, get(context, key));
+      }
       this.subscribe(key, update);
     });
 
