@@ -5,30 +5,13 @@ const { inject } = Ember;
 export default Ember.Mixin.create({
   paramsRelay: inject.service(),
 
-  init() {
-    this._super(...arguments);
-    var originalBeforeModel = this.beforeModel;
-    var originalQPsDidChange = this.actions.queryParamsDidChange;
+  beforeModel() {
+    var paramsRelay = this.get('paramsRelay');
+    var routeName = this.routeName || this.router.currentRouteName;
+    var controller = this.controllerFor(routeName);
 
-    // Override `beforeModel` hook to setup default values from the controller
-    this.beforeModel = function eqpBeforeModel() {
-      var paramsRelay = this.get('paramsRelay');
-      var routeName = this.routeName || this.router.currentRouteName;
-      var controller = this.controllerFor(routeName);
-
-      paramsRelay.autoSubscribe(controller);
-      originalBeforeModel.bind(this, ...arguments);
-    };
-
-    // Override `queryParamsDidChange` action for updating the paramsRelay
-    // service on QP URL value changes
-    this.actions.queryParamsDidChange = function eqpQueryParamsDidChange() {
-      var paramsRelay = this.get('paramsRelay');
-      var params = this.paramsFor(this.routeName);
-
-      paramsRelay.setParams(params);
-      originalQPsDidChange.bind(this, ...arguments);
-    };
+    paramsRelay.autoSubscribe(controller);
+    return this._super(...arguments);
   },
 
   subscribeParam(name, cb) {
@@ -41,5 +24,15 @@ export default Ember.Mixin.create({
     var paramsRelay = this.get('paramsRelay');
 
     paramsRelay.unsubscribe(name, cb);
+  },
+  
+  actions: {
+    queryParamsDidChange: function eqpQueryParamsDidChange() {
+      var paramsRelay = this.get('paramsRelay');
+      var params = this.paramsFor(this.routeName);
+
+      paramsRelay.setParams(params);
+      return this._super(...arguments);
+    }
   }
 });
