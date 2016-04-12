@@ -1,6 +1,6 @@
 {
   "name": "ember-query-params",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "Ember service for your query params",
   "directories": {
     "doc": "doc",
