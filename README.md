@@ -10,13 +10,32 @@ Ember service for your query params
 This addon is in response to https://github.com/emberjs/ember.js/issues/11592.  
 The idea came from [Robert Jackson].
 
+See the [Changelog] for version changes.
+
 ## Usage
 
+Setup your route with the `AutoSubscribe` mixin so we can listen for changes
+in query params from the URL, and also setup automatic subscribes for all
+of the query params on the related controller.
+
 ```js
+// my-route.js
 import Ember from 'ember';
 import AutosubscribeMixin from 'ember-query-params/mixins/autosubscribe';
 
-export default Ember.Controller.extend(AutosubscribeMixin, {
+export default Ember.Route.extend(AutosubscribeMixin, {
+  // Whatever else you have..
+});
+```
+
+The `AutoSubscribe` mixin requires that your controller has `queryParams` array
+setup to start relaying query params to the `paramsRelay` service.
+
+```js
+// my-controller.js
+import Ember from 'ember';
+
+export default Ember.Controller.extend({
   queryParams: [
     'theme',
     { isSidebarOpen: 'sidebar' }
@@ -32,54 +51,6 @@ the `paramsRelay` service. You also get a couple proxy methods, `subscribeParam`
 `unsubscribeParam` which work the same as the equivalent methods on the service.  
 Or you can use the service directly for maximum control.
 
-```js
-import Ember from 'ember';
-
-const { inject, Controller } = Ember;
-
-export default Controller.extend({
-  paramsRelay: inject.service(),
-
-  queryParams: [
-    'theme',
-    { isSidebarOpen: 'sidebar' }
-  ],
-  isSidebarOpen: false,
-  theme: 'default',
-
-  init() {
-    this._super(...arguments);
-    var paramsRelay = this.get('paramsRelay');
-
-    paramsRelay.autoSubscribe(this);
-    // or
-    paramsRelay.subscribe('theme', (name, val) => {
-      // name => 'theme'
-      this.set(name, val);
-    });
-  }
-});
-```
-
-In another place:
-
-```js
-import Ember from 'ember';
-
-const { inject, Controller } = Ember;
-
-export default Controller.extend({
-  paramsRelay: inject.service(),
-
-  actions: {
-    toggleSidebar(val) {
-      var paramsRelay = this.get('paramsRelay');
-
-      paramsRelay.setParam('isSidebarOpen', val);
-    }
-  }
-});
-```
 
 ## Service API
 
@@ -142,3 +113,4 @@ See [CONTRIBUTING.md].
 [Robert Jackson]: https://github.com/rwjblue
 [polyfill]: https://github.com/babel/ember-cli-babel#polyfill
 [CONTRIBUTING.md]: CONTRIBUTING.md
+[Changelog]: CHANGELOG.md
