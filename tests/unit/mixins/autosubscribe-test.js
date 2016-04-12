@@ -3,13 +3,26 @@ import { test, moduleFor } from 'ember-qunit';
 import emberVersionGTE from 'ember-test-helpers/has-ember-version';
 
 moduleFor('route:test', {
-  //needs: ['service:params-relay', 'controller:test'],
-  integration: true
+  needs: ['service:params-relay'],
 });
 
 test('it works', function(assert) {
+  let controllerStub = Ember.Object.create({
+    queryParams: [
+      'hello',
+      { myName: 'name' }
+    ]
+  });
   let subject = this.subject();
   let relay = subject.get('paramsRelay');
+
+  subject.routeName = 'test';
+  subject.controller = controllerStub;
+  subject.controllerFor = function () {
+    return subject.controller;
+  };
+
+  subject.beforeModel();
 
   relay.setParam('hello', 'bob');
   relay.setParam('myName', 'john');
@@ -19,9 +32,28 @@ test('it works', function(assert) {
 });
 
 test('auto unsubscribe', function(assert) {
+  let controllerStub = Ember.Object.create({
+    queryParams: [
+      'hello',
+      { myName: 'name' }
+    ]
+  });
   let subject = this.subject();
   let relay = subject.get('paramsRelay');
+  let originalDestroy = subject.destroy;
   let local;
+
+  subject.routeName = 'test';
+  subject.controller = controllerStub;
+  subject.controllerFor = function () {
+    return subject.controller;
+  };
+  subject.destroy = function () {
+    subject.controller.destroy();
+    originalDestroy.call(subject, ...arguments);
+  };
+
+  subject.beforeModel();
 
   relay.subscribe('hello', (key, val) => {
     local = val;

@@ -25,7 +25,7 @@ export default Ember.Mixin.create({
 
     paramsRelay.unsubscribe(name, cb);
   },
-  
+
   actions: {
     queryParamsDidChange: function eqpQueryParamsDidChange() {
       var paramsRelay = this.get('paramsRelay');
