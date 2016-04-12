@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.1 (4/12/2016)
+
+#### Fixes
+
+- Fix duplicate sections in README
+
 ## v2.0.0 (4/12/2016)
 
 #### Breaking Changes
