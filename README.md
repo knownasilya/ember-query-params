@@ -122,40 +122,4 @@ See [CONTRIBUTING.md].
 [Robert Jackson]: https://github.com/rwjblue
 [polyfill]: https://github.com/babel/ember-cli-babel#polyfill
 [CONTRIBUTING.md]: CONTRIBUTING.md
-## How It Works
-
-Basically the idea is that there is a central service that stores all QP values
-and from which you can subscribe to QP changes.
-
-We make this simple by providing a mixin for your route that sets up default QP
-values on the service from your controller, and hooks into the system for QP changes
-on URL updates. The controller also gets automatic subscriptions for all of it's own
-QPs.
-
-You can also use the service yourself, i.e. `paramsRelay: Ember.inject.service()` anywhere
-else, and get access to setting, getting and subscribing to the QP changes.
-## How It Works
-
-Basically the idea is that there is a central service that stores all QP values
-and from which you can subscribe to QP changes.
-
-We make this simple by providing a mixin for your route that sets up default QP
-values on the service from your controller, and hooks into the system for QP changes
-on URL updates. The controller also gets automatic subscriptions for all of it's own
-QPs.
-
-You can also use the service yourself, i.e. `paramsRelay: Ember.inject.service()` anywhere
-else, and get access to setting, getting and subscribing to the QP changes.
-## How It Works
-
-Basically the idea is that there is a central service that stores all QP values
-and from which you can subscribe to QP changes.
-
-We make this simple by providing a mixin for your route that sets up default QP
-values on the service from your controller, and hooks into the system for QP changes
-on URL updates. The controller also gets automatic subscriptions for all of it's own
-QPs.
-
-You can also use the service yourself, i.e. `paramsRelay: Ember.inject.service()` anywhere
-else, and get access to setting, getting and subscribing to the QP changes.
 [Changelog]: CHANGELOG.md
