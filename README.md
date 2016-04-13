@@ -39,6 +39,7 @@ import Ember from 'ember';
 import AutosubscribeMixin from 'ember-query-params/mixins/autosubscribe';
 
 export default Ember.Route.extend(AutosubscribeMixin, {
+  // If overriding `beforeModel`, make sure to call `this._super(...arguments)`.
   // Whatever else you have..
 });
 ```
