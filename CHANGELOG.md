@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.2 (4/13/2016)
+
+#### Fixes
+
+- Don't call handlers if param value unchanged, resolves #16
+
 ## v2.0.1 (4/12/2016)
 
 #### Fixes
