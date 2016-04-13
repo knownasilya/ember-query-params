@@ -11,10 +11,15 @@ export default Ember.Mixin.create({
   setParam(name, value) {
     let map = this._map;
     let item = map[name];
+    let oldValue;
 
     if (item) {
+      oldValue = item.value;
       item.value = value;
-      this.callCbs(name);
+
+      if (oldValue !== value) {
+        this.callCbs(name);
+      }
     } else {
       map[name] = {
         value,
@@ -87,6 +92,7 @@ export default Ember.Mixin.create({
     };
 
     keys.forEach(key => {
+      // only set if it doesn't exist yet
       if (!this._map[key]) {
         this.setParam(key, get(context, key));
       }
