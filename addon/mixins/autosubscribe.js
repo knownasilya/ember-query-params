@@ -42,8 +42,7 @@ export default Ember.Mixin.create({
     queryParamsDidChange: function eqpQueryParamsDidChange(changed) {
       var paramsRelay = this.get('paramsRelay');
       var routeName = this.routeName || this.router.currentRouteName;
-      var controller = this.controllerFor(routeName);
-      var params = this.paramsFor(this.routeName);
+      var params = this.paramsFor(routeName);
       var changedKeys = Object.keys(changed);
       var deserialized = changedKeys.reduce((res, key) => {
         let raw = params[key];
