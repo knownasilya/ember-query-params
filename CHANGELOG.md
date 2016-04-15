@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.0.3 (4/15/2016)
+
+#### Fixes
+
+- Compare array values for setParam handler calls (prevent SO)
+- Only send changed QPs from queryParamsDidChange action
+
 ## v2.0.2 (4/13/2016)
 
 #### Fixes
