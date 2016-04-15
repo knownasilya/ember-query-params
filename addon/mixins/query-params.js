@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { get } = Ember;
+const { get, typeOf } = Ember;
 
 export default Ember.Mixin.create({
   init() {
@@ -12,12 +12,21 @@ export default Ember.Mixin.create({
     let map = this._map;
     let item = map[name];
     let oldValue;
+    let sameValues;
 
     if (item) {
       oldValue = item.value;
       item.value = value;
 
-      if (oldValue !== value) {
+      if (typeOf(value) === 'array') {
+        try {
+          sameValues = JSON.stringify(value) === JSON.stringify(oldValue);
+        } catch(e) {}
+      } else {
+        sameValues = oldValue === value;
+      }
+
+      if (!sameValues) {
         this.callCbs(name);
       }
     } else {
