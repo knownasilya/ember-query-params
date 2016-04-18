@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.4 (4/18/2016)
+
+#### Fixes
+
+- Prevent error if hash for `setParams` is `undefined`
+
 ## v2.0.3 (4/15/2016)
 
 #### Fixes
