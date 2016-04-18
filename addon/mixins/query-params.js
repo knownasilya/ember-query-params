@@ -45,6 +45,10 @@ export default Ember.Mixin.create({
   },
 
   setParams(hash) {
+    if (!hash) {
+      return;
+    }
+
     Object.keys(hash).forEach(key => {
       let value = hash[key];
       this.setParam(key, value);
