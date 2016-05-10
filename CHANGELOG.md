@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.1.0 (5/10/2016)
+
+#### Fixes
+
+- Normalize string arrays
+- Don't set initial hash if there are params
+- Copy array values, so not changed by reference
+
+#### Features
+
+- `hasParams` method added.
+
 ## v2.0.4 (4/18/2016)
 
 #### Fixes
