@@ -56,6 +56,10 @@ export default Ember.Mixin.create({
     });
   },
 
+  hasParams() {
+    return Object.keys(this._map).length > 0;
+  },
+
   subscribe(name, cb) {
     let map = this._map;
     let item = map[name];
