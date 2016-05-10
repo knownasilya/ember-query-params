@@ -16,13 +16,14 @@ export default Ember.Mixin.create({
 
     if (item) {
       oldValue = item.value;
-      item.value = value;
 
       if (typeOf(value) === 'array') {
+        item.value = value.copy();
         try {
           sameValues = JSON.stringify(value) === JSON.stringify(oldValue);
         } catch(e) {}
       } else {
+        item.value = value;
         sameValues = oldValue === value;
       }
 
