@@ -74,9 +74,14 @@ Function signature `paramsRelay.getParam('name')`. Returns the value, can be any
 
 #### `setParams`
 
-Function signature `paramsRelay.setParams(obj)`.
+Function signature `paramsRelay.setParams(obj)`.  
 A helper method to set many query params at once. Suggested usage includes
 using in the route, i.e. `paramsRelay.setParams(this.paramsFor(this.routeName))`.
+
+#### `hasParams`
+
+Function signature `paramsRelay.hasParams()`.  
+Returns a boolean, letting you know if any params have been set on the service.
 
 #### `subscribe`
 
