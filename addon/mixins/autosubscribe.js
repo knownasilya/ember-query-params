@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 const { typeOf, inject } = Ember;
+const arrRegex = /^"?\[.*,*\]"?$/;
 
 export default Ember.Mixin.create({
   paramsRelay: inject.service(),
@@ -46,7 +47,9 @@ export default Ember.Mixin.create({
       var changedKeys = Object.keys(changed);
       var deserialized = changedKeys.reduce((res, key) => {
         let raw = params[key];
-        let value = this.deserializeQueryParam(changed[key], key, typeOf(raw));
+        let changedRaw = changed[key];
+        let normalized = normalizeArrayQp(changedRaw);
+        let value = this.deserializeQueryParam(normalized, key, normalized.match(arrRegex) ? 'array' : typeOf(raw));
 
         res[key] = value;
         return res;
@@ -54,7 +57,7 @@ export default Ember.Mixin.create({
 
       if (changedKeys.length && this._eqpSubscribed) {
         paramsRelay.setParams(deserialized);
-      } else if (changedKeys.length && !this._eqpSubscribed) {
+      } else if (!paramsRelay.hasParams() && changedKeys.length && !this._eqpSubscribed) {
         this._initialQps = deserialized;
       }
 
@@ -62,3 +65,13 @@ export default Ember.Mixin.create({
     }
   }
 });
+
+function normalizeArrayQp(val) {
+  if (val.match(/^"\[.*,*\]"$/)) {
+    try {
+      return JSON.parse(val);
+    } catch(e) {}
+  }
+
+  return val;
+}
