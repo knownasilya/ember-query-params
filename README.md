@@ -2,6 +2,8 @@
 
 Ember service for your query params
 
+:construction: Please use [ember-parachute] instead.
+
 [![NPM][npm-badge-img]][npm-badge-link]
 [![Build Status][travis-badge]][travis-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
@@ -118,6 +120,7 @@ export default Ember.Service.extend(QPMixin, {
 
 See [CONTRIBUTING.md].
 
+[ember-parachute]: https://github.com/offirgolan/ember-parachute
 [npm-badge-img]: https://badge.fury.io/js/ember-query-params.svg
 [npm-badge-link]: http://badge.fury.io/js/ember-query-params
 [travis-badge]: https://travis-ci.org/knownasilya/ember-query-params.svg
