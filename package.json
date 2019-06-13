@@ -1,6 +1,6 @@
 {
   "name": "ember-query-params",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Ember service for your query params",
   "keywords": [
     "ember-addon",

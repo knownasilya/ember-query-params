@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.2](https://github.com/knownasilya/ember-query-params/compare/v2.1.1...v2.1.2) (2019-06-13)
+
+
+### Bug Fixes
+
+* .match call on null ([#27](https://github.com/knownasilya/ember-query-params/issues/27)) ([f64a029](https://github.com/knownasilya/ember-query-params/commit/f64a029))
+* codemods ([2ee2594](https://github.com/knownasilya/ember-query-params/commit/2ee2594))
+* shorthand ([8784538](https://github.com/knownasilya/ember-query-params/commit/8784538))
+* update ([9fc93e5](https://github.com/knownasilya/ember-query-params/commit/9fc93e5))
+* update lockfile ([c3fe3d6](https://github.com/knownasilya/ember-query-params/commit/c3fe3d6))
+
+
+
 ### [2.1.1](https://github.com/knownasilya/ember-query-params/compare/v2.1.0...v2.1.1) (2019-06-13)
 
 
