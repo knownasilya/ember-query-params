@@ -43,10 +43,10 @@ of the query params on the related controller.
 
 ```js
 // my-route.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 import AutosubscribeMixin from 'ember-query-params/mixins/autosubscribe';
 
-export default Ember.Route.extend(AutosubscribeMixin, {
+export default Route.extend(AutosubscribeMixin, {
   // If overriding `beforeModel`, make sure to call `this._super(...arguments)`.
   // Whatever else you have..
 });
@@ -57,9 +57,9 @@ setup to start relaying query params to the `paramsRelay` service.
 
 ```js
 // my-controller.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   queryParams: [
     'theme',
     { isSidebarOpen: 'sidebar' }
@@ -114,10 +114,10 @@ All query params must have a unique name, since setting a 'theme' in one control
 You can also setup your own service, just use the mixin.
 
 ```js
-import Ember from 'ember';
+import Service from '@ember/service';
 import QPMixin from 'ember-query-params/mixins/query-params';
 
-export default Ember.Service.extend(QPMixin, {
+export default Service.extend(QPMixin, {
   // your code
 });
 ```
