@@ -1,5 +1,19 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [2.1.1](https://github.com/knownasilya/ember-query-params/compare/v2.1.0...v2.1.1) (2019-06-13)
+
+
+### Bug Fixes
+
+* deserialization of array ([#26](https://github.com/knownasilya/ember-query-params/issues/26)) ([fa38cd5](https://github.com/knownasilya/ember-query-params/commit/fa38cd5))
+* handle nulls in auto subscribe queryParamsDidchange ([#24](https://github.com/knownasilya/ember-query-params/issues/24)) ([437950f](https://github.com/knownasilya/ember-query-params/commit/437950f))
+
+
+
+# Changelog
+
 ## v2.1.0 (5/10/2016)
 
 #### Fixes
