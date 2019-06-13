@@ -67,9 +67,10 @@ export default Ember.Mixin.create({
 });
 
 function normalizeArrayQp(val) {
-  if (val && val.match(/^"\[.*,*\]"$/)) {
+  var matched = val && val.match(/^"(\[.*,*\])"$/);
+  if (matched) {
     try {
-      return JSON.parse(val);
+      return JSON.parse(matched[1]);
     } catch(e) {}
   }
 
