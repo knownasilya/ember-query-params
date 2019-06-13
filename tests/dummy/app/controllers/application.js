@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
-  paramsRelay: Ember.inject.service('params-relay'),
+export default Controller.extend({
+  paramsRelay: service('params-relay'),
   appName: 'Ember Twiddle',
   queryParams: ['theme', { isSidebar: 'sidebar' }],
   theme: 'bye',

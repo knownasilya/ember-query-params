@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Service from '@ember/service';
 import QPMixin from '../mixins/query-params';
 
-export default Ember.Service.extend(QPMixin, {});
+export default Service.extend(QPMixin, {});

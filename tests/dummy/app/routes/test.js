@@ -1,5 +1,5 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 import AutoSubscribeMixin from 'ember-query-params/mixins/autosubscribe';
 
-export default Ember.Route.extend(AutoSubscribeMixin, {
+export default Route.extend(AutoSubscribeMixin, {
 });

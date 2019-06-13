@@ -1,9 +1,8 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 
-const { inject } = Ember;
-
-export default Ember.Route.extend({
-  paramsRelay: inject.service(),
+export default Route.extend({
+  paramsRelay: service(),
 
   actions: {
     queryParamsDidChange() {

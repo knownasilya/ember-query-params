@@ -1,10 +1,11 @@
-import Ember from 'ember';
-
-const { typeOf, inject } = Ember;
+import { inject as service } from '@ember/service';
+import { schedule } from '@ember/runloop';
+import Mixin from '@ember/object/mixin';
+import { typeOf } from '@ember/utils';
 const arrRegex = /^"?\[.*,*\]"?$/;
 
-export default Ember.Mixin.create({
-  paramsRelay: inject.service(),
+export default Mixin.create({
+  paramsRelay: service(),
 
   beforeModel() {
     var paramsRelay = this.get('paramsRelay');
@@ -18,7 +19,7 @@ export default Ember.Mixin.create({
 
     // Set initial QPs since action fires first
     if (this._initialQps) {
-      Ember.run.schedule('afterRender', this, () => {
+      schedule('afterRender', this, () => {
         paramsRelay.setParams(this._initialQps);
         this._initialQps = undefined;
       });

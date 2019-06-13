@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
+import Mixin from '@ember/object/mixin';
+import { get } from '@ember/object';
+import { typeOf } from '@ember/utils';
 
-const { get, typeOf } = Ember;
-
-export default Ember.Mixin.create({
+export default Mixin.create({
   init() {
     this._super(...arguments);
     this._map = {};
@@ -106,7 +107,7 @@ export default Ember.Mixin.create({
         return;
       }
 
-      Ember.run(context, 'set', name, val);
+      run(context, 'set', name, val);
     };
 
     keys.forEach(key => {
