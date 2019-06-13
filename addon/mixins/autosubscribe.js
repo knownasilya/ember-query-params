@@ -50,7 +50,7 @@ export default Mixin.create({
         let raw = params[key];
         let changedRaw = changed[key];
         let normalized = normalizeArrayQp(changedRaw);
-        let value = this.deserializeQueryParam(normalized, key, normalized.match(arrRegex) ? 'array' : typeOf(raw));
+        let value = this.deserializeQueryParam(normalized, key, normalized && normalized.match(arrRegex) ? 'array' : typeOf(raw));
 
         res[key] = value;
         return res;
