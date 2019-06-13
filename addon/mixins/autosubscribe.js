@@ -41,7 +41,7 @@ export default Mixin.create({
   },
 
   actions: {
-    queryParamsDidChange: function eqpQueryParamsDidChange(changed) {
+    queryParamsDidChange(changed) {
       var paramsRelay = this.get('paramsRelay');
       var routeName = this.routeName || this.router.currentRouteName;
       var params = this.paramsFor(routeName);
