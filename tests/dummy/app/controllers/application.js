@@ -19,8 +19,8 @@ export default Controller.extend({
   },
 
   actions: {
-  	updateTheme() {
-    	var paramsRelay = this.get('paramsRelay');
+    updateTheme() {
+      var paramsRelay = this.get('paramsRelay');
       var counter = this.incrementProperty('counter');
 
       paramsRelay.setParam('theme', `hi${counter}`);

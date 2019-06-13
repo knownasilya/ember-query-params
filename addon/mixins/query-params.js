@@ -22,7 +22,9 @@ export default Mixin.create({
         item.value = value.copy();
         try {
           sameValues = JSON.stringify(value) === JSON.stringify(oldValue);
-        } catch(e) {}
+        } catch(e) {
+          // noop
+        }
       } else {
         item.value = value;
         sameValues = oldValue === value;
@@ -41,7 +43,7 @@ export default Mixin.create({
 
   getParam(name) {
     let map = this._map;
-  	let item = map[name];
+    let item = map[name];
 
     return item ? item.value : undefined;
   },
@@ -68,7 +70,7 @@ export default Mixin.create({
     if (item) {
       item.cbs.push(cb);
     } else {
-    	map[name] = {
+      map[name] = {
 				value: undefined,
         cbs: [cb]
       };
@@ -89,15 +91,15 @@ export default Mixin.create({
   },
 
   autoSubscribe(context) {
-  	if (!context || !context.queryParams) {
-    	return;
+    if (!context || !context.queryParams) {
+      return;
     }
 
     let keys = context.queryParams.reduce((all, item) => {
-    	if (typeof item === 'string') {
-      	all.push(item);
+      if (typeof item === 'string') {
+        all.push(item);
       } else if (typeof item === 'object') {
-      	all = all.concat(Object.keys(item));
+        all = all.concat(Object.keys(item));
       }
 
       return all;
@@ -130,9 +132,9 @@ export default Mixin.create({
 
   callCbs(name) {
     let map = this._map;
-  	let item = map[name];
+    let item = map[name];
 
-  	if (item) {
+    if (item) {
       item.cbs.forEach(cb => cb(name, item.value));
     }
   }

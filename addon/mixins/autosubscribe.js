@@ -72,7 +72,9 @@ function normalizeArrayQp(val) {
   if (matched) {
     try {
       return JSON.parse(matched[1]);
-    } catch(e) {}
+    } catch(e) {
+      // noop
+    }
   }
 
   return val;

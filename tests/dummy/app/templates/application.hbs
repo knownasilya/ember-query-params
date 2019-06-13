@@ -5,9 +5,9 @@
 <br>
 <br>
 
-<button type="button" {{action 'updateTheme'}}>Test</button><br>
-{{theme}}<br/>
-{{theme2}}<br/>
-{{isSidebar}}
+<button type="button" {{action this.updateTheme}}>Test</button><br>
+{{this.theme}}<br>
+{{this.theme2}}<br>
+{{this.isSidebar}}
 
-{{link-to 'Test' 'test'}}
+{{#link-to "test"}}Test{{/link-to}}
