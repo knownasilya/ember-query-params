@@ -14,6 +14,12 @@ The idea came from [Robert Jackson].
 
 See the [Changelog] for version changes.
 
+## Compatibility
+
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
+* Node.js v8 or above
+
 
 ## How It Works
 

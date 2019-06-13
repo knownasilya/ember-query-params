@@ -2,44 +2,6 @@
   "name": "ember-query-params",
   "version": "2.1.1",
   "description": "Ember service for your query params",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
-  "scripts": {
-    "build": "ember build",
-    "start": "ember server",
-    "test": "ember try:each",
-    "test-default": "ember try:one default --- ember test",
-    "release": "standard-version"
-  },
-  "repository": "https://github.com/knownasilya/ember-query-params",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "author": "Ilya Radchenko <ilya@burstcreations.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "broccoli-asset-rev": "^2.4.2",
-    "ember-cli": "2.4.3",
-    "ember-cli-app-version": "^1.0.0",
-    "ember-cli-dependency-checker": "^1.2.0",
-    "ember-cli-github-pages": "0.0.8",
-    "ember-cli-htmlbars": "^1.0.3",
-    "ember-cli-htmlbars-inline-precompile": "^0.3.1",
-    "ember-cli-inject-live-reload": "^1.4.0",
-    "ember-cli-qunit": "^1.4.0",
-    "ember-cli-release": "0.2.8",
-    "ember-cli-sri": "^2.1.0",
-    "ember-cli-uglify": "^1.2.0",
-    "ember-disable-prototype-extensions": "^1.1.0",
-    "ember-export-application-global": "^1.0.5",
-    "ember-load-initializers": "^0.5.1",
-    "ember-resolver": "^2.0.3",
-    "ember-try": "^0.2.2",
-    "loader.js": "^4.0.1",
-    "standard-version": "^6.0.1"
-  },
   "keywords": [
     "ember-addon",
     "query params",
@@ -48,8 +10,56 @@
     "subscribe",
     "url"
   ],
+  "repository": "https://github.com/knownasilya/ember-query-params",
+  "license": "MIT",
+  "author": "Ilya Radchenko <ilya@burstcreations.com>",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "ember build",
+    "lint:hbs": "ember-template-lint .",
+    "lint:js": "eslint .",
+    "start": "ember serve",
+    "test": "ember test",
+    "test:all": "ember try:each",
+    "test-default": "ember try:one default --- ember test",
+    "release": "standard-version"
+  },
   "dependencies": {
-    "ember-cli-babel": "^5.1.6"
+    "ember-cli-babel": "^7.7.3"
+  },
+  "devDependencies": {
+    "@ember/optional-features": "^0.7.0",
+    "broccoli-asset-rev": "^3.0.0",
+    "ember-cli": "~3.10.1",
+    "ember-cli-dependency-checker": "^3.1.0",
+    "ember-cli-eslint": "^5.1.0",
+    "ember-cli-github-pages": "0.0.8",
+    "ember-cli-htmlbars": "^3.0.1",
+    "ember-cli-htmlbars-inline-precompile": "^2.1.0",
+    "ember-cli-inject-live-reload": "^1.8.2",
+    "ember-cli-sri": "^2.1.1",
+    "ember-cli-template-lint": "^1.0.0-beta.1",
+    "ember-cli-uglify": "^2.1.0",
+    "ember-disable-prototype-extensions": "^1.1.3",
+    "ember-export-application-global": "^2.0.0",
+    "ember-load-initializers": "^2.0.0",
+    "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-qunit": "^4.4.1",
+    "ember-resolver": "^5.0.1",
+    "ember-source": "~3.10.0",
+    "ember-source-channel-url": "^1.1.0",
+    "ember-try": "^1.0.0",
+    "eslint-plugin-ember": "^6.2.0",
+    "eslint-plugin-node": "^9.0.1",
+    "loader.js": "^4.7.0",
+    "qunit-dom": "^0.8.4",
+    "standard-version": "^6.0.1"
+  },
+  "engines": {
+    "node": "8.* || >= 10.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
